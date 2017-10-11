@@ -1,0 +1,43 @@
+cp -r 00c_RSS_scripts ./
+00a_start-structures
+00b_gromacs_files
+edit 01_prepare_folderstructure.sh only if changing from local to cluster
+ cp rss_0000* /home/gsosso/CODES/GIT/Hseed/EXAMPLE/RSS/00a_start-structures
+find N_ICE -> grep "OW" seed_Ic_001.gro | wc -l | awk '{print $1*4}'
+put all the gromacs run files into /home/gsosso/CODES/GIT/Hseed/EXAMPLE/RSS/00b_gromacs_files/01_LOCAL_MACHINE
+mkdir a TEST dir where to run a single minimization - just to be sure
+#only for the test
+#fix the cap of the hemisphere (grep OW seed_Ic_001.gro | wc -l | awk '{print $1*4}')
+#tail this+1 from conf.gro 
+#tail -n 1549 conf.gro | head -1548 | awk '{print $3}' | paste - - - - - - - - - >> index.ndx 
+(once for ice seed type)
+consider to fix the substrate for MDHE...
+cp grompp.mdp index.ndx topol.top /home/gsosso/CODES/GIT/Hseed/EXAMPLE/RSS/00b_gromacs_files/01_LOCAL_MACHINE
+modify topol.top
+everything is absolute path in there
+modify topol.top as per n-SOl -->> N_SOL
+in 02_minimize, edit run.sh
+-
+list_folders=($(ls -d rss_00000))
+
+file_topology="topol.top"
+file_minimize="grompp.mdp"
+file_index="index.ndx"
+
+analysis:03_get_energies.sh
+needs to 
+** ALL OF THIS IN /EXAMPLE/COMPONENTS
+-get the energy of the minimized surface MSURF
+-  - - -- - - - water molecule SOL
+touch E_Components.dat line 1 SOL, line 2 MSURF
+check 03_get_energies.sh link to E_Components.dat
+
+energy of the fixed part of the ice cap
+in /home/gsosso/CODES/GIT/Hseed/EXAMPLE/RSS/00d_crystallite
+keep them fixed!
+write DATA_CRYSTALLITE.dat, line 1 = n. of w mol, line 2 ene of the FROZEN cap
+./03... PREFIX_DIR=rss something
+ ./03_get_energies.sh rss
+
+LEGION
+Do everything on Legion if possible

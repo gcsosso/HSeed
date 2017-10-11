@@ -1,0 +1,2 @@
+110 was modified by: /home/pp/programs/python/tidy_up_POSCAR
+ --> crop away h2o that were separated by PBC, order O, H, X

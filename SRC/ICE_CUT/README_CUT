@@ -1,0 +1,11 @@
+general info about cutting surfaces using miller indices!
+
+we need to be careful about miller indices if the cells that we use are not supercells, 
+in which a, b and c have been scaled equally!!!
+
+for Ih:
+a and b need to be equal, so that (100) == (010), but not necessarily c
+
+for Ic:
+ideally a,b and c remain the same multiple...
+but for 111 it is fairly easy to adjust cut in case of SC_6x4x4

@@ -1,0 +1,36 @@
+#include "/home/gsosso/CODES/GROMACS/gromacs-5.0.4/share/top/charmm36-jun2015_MDHE_TIP4P_ICE.ff/forcefield.itp"
+
+; MDHF
+#include "/home/gsosso/CODES/GROMACS/gromacs-5.0.4/share/top/charmm36-jun2015_MDHE_TIP4P_ICE.ff/mdhf.prm"
+#include "/home/gsosso/CODES/GROMACS/gromacs-5.0.4/share/top/charmm36-jun2015_MDHE_TIP4P_ICE.ff/mdhf.itp"
+
+; MDHF restraints 
+#ifdef POSRES_MDHF
+#include "/home/gsosso/CODES/GIT/Hseed/EXAMPLE/RSS/00b_gromacs_files/01_LOCAL_MACHINE/posre_mdhf.itp"
+#endif
+
+; MDHE
+; grompp would complain if we include two prm files. in any case, they are identical, so...
+;#include "/home/gsosso/CODES/GROMACS/gromacs-5.0.4/share/top/charmm36-jun2015_MDHE_TIP4P_ICE.ff/mdhe.prm"
+#include "/home/gsosso/CODES/GROMACS/gromacs-5.0.4/share/top/charmm36-jun2015_MDHE_TIP4P_ICE.ff/mdhe.itp"
+
+; MDHE restraints 
+#ifdef POSRES_MDHE
+#include "/home/gsosso/CODES/GIT/Hseed/EXAMPLE/RSS/00b_gromacs_files/01_LOCAL_MACHINE/posre_mdhe.itp"
+#endif
+
+; Include water topology:  TIP4P/Ice
+#include "/home/gsosso/CODES/GROMACS/gromacs-5.0.4/share/top/charmm36-jun2015_MDHE_TIP4P_ICE.ff/tip4p.itp"
+
+; Include topology for ions
+#include "/home/gsosso/CODES/GROMACS/gromacs-5.0.4/share/top/charmm36-jun2015_MDHE_TIP4P_ICE.ff/ions.itp"
+
+[ system ]
+; Name
+MDHE_SOL
+
+[ molecules ]
+; Compound        #mols
+MDHF              96
+MDHE              96
+SOL               N_SOL
