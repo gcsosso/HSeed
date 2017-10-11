@@ -1,0 +1,3 @@
+cut from 21.965942
+
+./make_hemisphere.py Ic_001_T30_CLEAN.POSCAR Ic_001_T30.gro Ic_001_T30.lattice 250 True > make_hemisphere.log
