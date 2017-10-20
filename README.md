@@ -1,4 +1,6 @@
-# Hseed# 
+# HSeed - Heterogeneous Seeding Approach for Molecular Simulation #
+# ############################################################### #
+# 20.10.2017
 
 BUILD is the first step.
 
